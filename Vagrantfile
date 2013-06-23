@@ -86,6 +86,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "mysql::server"
       chef.add_recipe "php::module_curl"
       chef.add_recipe "php::module_mysql"
+      chef.add_recipe "php::module_gd"
       chef.add_recipe "apache2::mod_php5"
       chef.add_recipe "apache2::mod_rewrite"
       chef.add_recipe "chef-composer"
@@ -94,9 +95,9 @@ Vagrant.configure("2") do |config|
             :default_site_enabled => true
           },
             :mysql => {
-             :server_root_password => "root",
-             :server_repl_password => "root",
-         :server_debian_password => "root"
+              :server_root_password => "root",
+              :server_repl_password => "root",
+              :server_debian_password => "root"
           }
     }
   end
