@@ -16,11 +16,11 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  # config.vm.network :forwarded_port, guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: "33.33.33.33"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "www", "/var/www", owner: 'www-data'
+  config.vm.synced_folder "www", "/var/www", :nfs => true, :extra => 'dmode=777,fmode=777'
 
 
   # Provider-specific configuration so you can fine-tune various
@@ -79,6 +79,7 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provision :chef_solo do |chef|
       chef.add_recipe "apt"
+      chef.add_recipe "git"
       chef.add_recipe "openssl"
       chef.add_recipe "apache2"
       chef.add_recipe "php"
@@ -87,6 +88,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "php::module_curl"
       chef.add_recipe "php::module_mysql"
       chef.add_recipe "php::module_gd"
+      chef.add_recipe "php::module_intl"
       chef.add_recipe "apache2::mod_php5"
       chef.add_recipe "apache2::mod_rewrite"
       chef.add_recipe "chef-composer"

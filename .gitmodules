@@ -4,9 +4,6 @@
 [submodule "cookbooks/apt"]
 	path = cookbooks/apt
 	url = https://github.com/opscode-cookbooks/apt.git
-[submodule "cookbooks/php"]
-	path = cookbooks/php
-	url = https://github.com/opscode-cookbooks/php.git
 [submodule "cookbooks/mysql"]
 	path = cookbooks/mysql
 	url = https://github.com/opscode-cookbooks/mysql.git
@@ -16,3 +13,6 @@
 [submodule "cookbooks/chef-composer"]
 	path = cookbooks/chef-composer
 	url = https://github.com/escapestudios/chef-composer.git
+[submodule "cookbooks/git"]
+	path = cookbooks/git
+	url = https://github.com/opscode-cookbooks/git.git
