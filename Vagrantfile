@@ -89,6 +89,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "php::module_mysql"
       chef.add_recipe "php::module_gd"
       chef.add_recipe "php::module_intl"
+      chef.add_recipe "php::module_mcrypt"
       chef.add_recipe "apache2::mod_php5"
       chef.add_recipe "apache2::mod_rewrite"
       chef.add_recipe "chef-composer"
